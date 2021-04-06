@@ -70,10 +70,10 @@ type KeysCanBeExpanded_<T, N extends number, Depth extends number[]> = N extends
 export type KeysCanBeExpanded<T, N extends number = 4> = KeysCanBeExpanded_<T, N, []>
 
 
-//type UseQueryOptions_<T> = BaseUseQueryOptions<AxiosResponse<T>, AxiosError<ApiError>>
-//export type UseQueryOptions<T, K> = UseQueryOptions_<Expand_<T, K> extends infer O ? O : never>
+type UseQueryOptions_<T> = BaseUseQueryOptions<AxiosResponse<T>, AxiosError<ApiError>>
+export type UseQueryOptions<T, K> = UseQueryOptions_<Expand_<T, K> extends infer O ? O : never>
 
-export type UseQueryOptions<T, K> = BaseUseQueryOptions<AxiosResponse<T>, AxiosError<ApiError>>
+//export type UseQueryOptions<T, K> = BaseUseQueryOptions<AxiosResponse<T>, AxiosError<ApiError>>
 
 export interface AxiosRequestConfig<T> extends BaseAxiosRequestConfig {
     params?: {
